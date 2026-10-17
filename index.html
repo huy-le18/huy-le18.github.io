@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lê Danh Huy — Giáo viên Điện tử · Lập trình · Robotics</title>
+<meta name="description" content="Lê Danh Huy – kỹ sư Điện tử Viễn thông, giảng dạy STEM, Lập trình, Điện tử và Robotics cho học sinh THCS, THPT và sinh viên.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f6f3ec;
+    --bg-soft: #efeadf;
+    --card: #fffdf8;
+    --ink: #1f2d45;
+    --ink-soft: #4a5568;
+    --muted: #7a8494;
+    --line: #dcd6c8;
+    --grid: rgba(31, 45, 69, .045);
+    --teal: #3a6b78;
+    --teal-dark: #2d5560;
+    --teal-tint: #dbe8ea;
+    --accent: #c0623a;
+    --serif: "Newsreader", Georgia, serif;
+    --sans: "Be Vietnam Pro", system-ui, sans-serif;
+    --radius: 18px;
+    --shadow: 0 18px 40px -18px rgba(31, 45, 69, .28);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background-color: var(--bg);
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 32px 32px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  .container { width: min(1120px, 100% - 32px); margin-inline: auto; }
+
+  /* ---------- Header ---------- */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(246, 243, 236, .88);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .logo {
+    width: 34px; height: 34px; border-radius: 8px;
+    background: var(--teal); color: #fff;
+    display: grid; place-items: center;
+    font-size: 11px; font-weight: 600; letter-spacing: .5px;
+  }
+  .brand-name { font-family: var(--serif); font-size: 21px; }
+  .brand-name em { color: var(--teal); }
+  .menu { display: flex; align-items: center; gap: 26px; list-style: none; }
+  .menu a { font-size: 14.5px; color: var(--ink-soft); font-weight: 500; transition: color .2s; }
+  .menu a:hover { color: var(--teal); }
+  .menu a.btn-primary, .menu a.btn-primary:hover { color: #fff; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 26px; border-radius: 999px;
+    font-weight: 600; font-size: 15px;
+    border: 1.5px solid var(--teal);
+    transition: transform .2s, background .2s, box-shadow .2s;
+    cursor: pointer;
+  }
+  .btn-primary { background: var(--teal); color: #fff; box-shadow: 0 10px 22px -10px rgba(58, 107, 120, .7); }
+  .btn-primary:hover { background: var(--teal-dark); transform: translateY(-2px); }
+  .btn-ghost { color: var(--ink); background: transparent; border-color: var(--teal); }
+  .btn-ghost:hover { background: var(--teal-tint); transform: translateY(-2px); }
+  .btn-sm { padding: 10px 20px; font-size: 14px; }
+  .menu-toggle { display: none; background: none; border: 0; font-size: 26px; color: var(--ink); cursor: pointer; }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: 80px 0 90px; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 64px; align-items: center; }
+  .kicker { color: var(--accent); font-size: 13px; font-weight: 500; letter-spacing: .3px; margin-bottom: 18px; }
+  h1 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(42px, 6vw, 64px); line-height: 1.12;
+    letter-spacing: -.5px; margin-bottom: 26px;
+  }
+  h1 em, h2 em { color: var(--teal); }
+  .lead { font-size: 16.5px; color: var(--ink-soft); max-width: 520px; line-height: 1.8; }
+  .lead strong { color: var(--ink); }
+  .facts {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    border-top: 1px solid var(--line); margin: 30px 0 34px; padding-top: 16px; max-width: 520px;
+  }
+  .facts small {
+    display: block; font-size: 10.5px; text-transform: uppercase;
+    letter-spacing: 1px; color: var(--muted); margin-bottom: 4px;
+  }
+  .facts span { font-size: 13.5px; color: var(--ink-soft); }
+  .actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  .photo-wrap { position: relative; }
+  .photo-wrap::before {
+    content: ""; position: absolute; inset: 14px -14px -14px 14px;
+    background: var(--teal-tint); border-radius: var(--radius); z-index: -1;
+  }
+  .photo {
+    background: var(--card); border-radius: var(--radius);
+    padding: 8px 8px 0; box-shadow: var(--shadow);
+  }
+  .photo-img {
+    aspect-ratio: 4 / 5; border-radius: 12px; overflow: hidden;
+    background: linear-gradient(135deg, #c9b79c, #8a7660);
+    display: grid; place-items: center; color: #fff; font-size: 14px;
+  }
+  .photo-img img { width: 100%; height: 100%; object-fit: cover; }
+  .caption { padding: 10px 6px 12px; font-size: 12.5px; color: var(--ink-soft); }
+  .caption b { color: var(--accent); font-weight: 500; font-size: 10.5px; letter-spacing: 1.5px; margin-right: 6px; }
+
+  /* ---------- Sections ---------- */
+  section.block { padding: 90px 0; border-top: 1px solid var(--line); }
+  section.alt { background: rgba(239, 234, 223, .6); }
+  .section-head { max-width: 640px; margin-bottom: 48px; }
+  h2 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(32px, 4vw, 44px); line-height: 1.18; margin-bottom: 14px;
+  }
+  .section-head p { color: var(--ink-soft); }
+
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+  .about-grid p { color: var(--ink-soft); margin-bottom: 16px; }
+  .timeline { list-style: none; border-left: 2px solid var(--line); padding-left: 24px; }
+  .timeline li { position: relative; margin-bottom: 24px; }
+  .timeline li::before {
+    content: ""; position: absolute; left: -31px; top: 7px;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--bg); border: 2px solid var(--teal);
+  }
+  .timeline .year { font-size: 12.5px; color: var(--accent); font-weight: 600; }
+  .timeline h4 { font-size: 16px; font-weight: 600; }
+  .timeline p { font-size: 14px; margin: 0; }
+
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 28px; transition: transform .25s, box-shadow .25s;
+    display: flex; flex-direction: column;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+  .tag {
+    align-self: flex-start; font-size: 11.5px; font-weight: 600;
+    background: var(--teal-tint); color: var(--teal-dark);
+    padding: 4px 12px; border-radius: 999px; margin-bottom: 16px;
+  }
+  .card h3 { font-family: var(--serif); font-weight: 500; font-size: 23px; margin-bottom: 10px; }
+  .card p { color: var(--ink-soft); font-size: 14.5px; flex: 1; }
+  .card .meta {
+    display: flex; justify-content: space-between; margin-top: 20px; padding-top: 16px;
+    border-top: 1px dashed var(--line); font-size: 13px; color: var(--muted);
+  }
+  .card .meta b { color: var(--teal); font-weight: 600; }
+
+  .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+  .project { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+  .project-thumb {
+    aspect-ratio: 16 / 9; display: grid; place-items: center;
+    font-family: var(--serif); font-size: 46px; font-style: italic; color: rgba(255, 255, 255, .9);
+  }
+  .project-body { padding: 22px 24px 26px; }
+  .project-body h3 { font-size: 18px; font-weight: 600; margin-bottom: 6px; }
+  .project-body p { font-size: 14px; color: var(--ink-soft); }
+  .project-body .by { font-size: 12.5px; color: var(--accent); margin-top: 10px; display: block; }
+
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-top: 56px; }
+  .stat { border-top: 2px solid var(--teal); padding-top: 14px; }
+  .stat strong { font-family: var(--serif); font-size: 40px; font-weight: 400; display: block; line-height: 1.1; }
+  .stat span { font-size: 13.5px; color: var(--muted); }
+
+  /* ---------- Contact ---------- */
+  .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; align-items: start; }
+  .contact-list { list-style: none; margin-top: 28px; }
+  .contact-list li { padding: 14px 0; border-bottom: 1px solid var(--line); display: flex; gap: 16px; }
+  .contact-list small { width: 90px; flex-shrink: 0; color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; padding-top: 3px; }
+  form {
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 32px; box-shadow: var(--shadow); display: grid; gap: 16px;
+  }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  label { font-size: 13px; font-weight: 500; color: var(--ink-soft); display: grid; gap: 6px; }
+  input, select, textarea {
+    font: inherit; font-size: 15px; color: var(--ink);
+    padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg);
+  }
+  input:focus, select:focus, textarea:focus { outline: 2px solid var(--teal-tint); border-color: var(--teal); }
+  textarea { min-height: 110px; resize: vertical; }
+  .form-note { font-size: 13px; color: var(--teal); min-height: 1em; }
+
+  footer { border-top: 1px solid var(--line); padding: 28px 0; font-size: 13px; color: var(--muted); }
+  footer .container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+
+  /* ---------- Reveal ---------- */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.show { opacity: 1; transform: none; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 960px) {
+    .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+    .photo-wrap { max-width: 440px; }
+    .cards { grid-template-columns: 1fr 1fr; }
+    .stats { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 820px) {
+    .menu-toggle { display: block; }
+    .menu {
+      position: absolute; top: 72px; left: 0; right: 0;
+      flex-direction: column; align-items: flex-start; gap: 0;
+      background: var(--bg); border-bottom: 1px solid var(--line);
+      padding: 8px 16px 18px; display: none;
+    }
+    .menu.open { display: flex; }
+    .menu li { width: 100%; }
+    .menu a { display: block; padding: 12px 0; }
+  }
+  @media (max-width: 600px) {
+    .hero { padding: 48px 0 64px; }
+    .facts { grid-template-columns: 1fr; gap: 12px; }
+    .cards, .projects, .row { grid-template-columns: 1fr; }
+    section.block { padding: 64px 0; }
+    .photo-wrap::before { inset: 10px -8px -10px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="container nav">
+    <a href="#" class="brand">
+      <span class="logo">LDH</span>
+      <span class="brand-name">Lê Danh <em>Huy</em></span>
+    </a>
+    <button class="menu-toggle" aria-label="Mở menu" onclick="document.querySelector('.menu').classList.toggle('open')">☰</button>
+    <ul class="menu">
+      <li><a href="#gioi-thieu">Giới thiệu</a></li>
+      <li><a href="#lop-hoc">Lớp học</a></li>
+      <li><a href="#khoa-hoc">Khóa học</a></li>
+      <li><a href="#du-an-hoc-sinh">Dự án học sinh</a></li>
+      <li><a href="#du-an">Dự án</a></li>
+      <li><a href="#lien-he">Liên hệ</a></li>
+      <li><a href="#lien-he" class="btn btn-primary btn-sm">Đăng ký học</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="reveal">
+        <p class="kicker">Giáo viên Điện tử · Lập trình · Robotics</p>
+        <h1>Dạy kỹ thuật<br>bằng <em>thực hành</em></h1>
+        <p class="lead">
+          Tôi là <strong>Lê Danh Huy</strong>, kỹ sư Điện tử — Viễn thông, Đại học Bách khoa Hà Nội.
+          Từ năm 2020, tôi thiết kế bài giảng và trực tiếp dạy STEM, Lập trình, Điện tử và Robotics
+          cho học sinh THCS, THPT và sinh viên. Kinh nghiệm làm sản phẩm IoT thực tế được tôi đưa
+          trực tiếp vào bài giảng.
+        </p>
+        <div class="facts">
+          <div><small>Chuyên môn</small><span>Điện tử, hệ nhúng, IoT</span></div>
+          <div><small>Độ tuổi dạy</small><span>Học sinh lớp 4 — lớp 12</span></div>
+          <div><small>Khu vực</small><span>Hà Nội &amp; trực tuyến</span></div>
+        </div>
+        <div class="actions">
+          <a href="#lien-he" class="btn btn-primary">Đăng ký khóa học →</a>
+          <a href="#khoa-hoc" class="btn btn-ghost">Xem các khóa học</a>
+        </div>
+      </div>
+
+      <div class="photo-wrap reveal">
+        <figure class="photo">
+          <div class="photo-img">
+            <!-- Đặt ảnh của bạn cùng thư mục với tên anh-dai-dien.jpg -->
+            <img src="anh-dai-dien.jpg" alt="Lê Danh Huy hướng dẫn dự án STEM"
+                 onerror="this.replaceWith(document.createTextNode('Thêm ảnh: anh-dai-dien.jpg'))">
+          </div>
+          <figcaption class="caption"><b>LÊ DANH HUY</b>Trong một buổi hướng dẫn dự án STEM</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- GIỚI THIỆU -->
+  <section class="block alt" id="gioi-thieu">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="kicker">Giới thiệu</p>
+        <h2>Từ phòng lab đến <em>lớp học</em></h2>
+      </div>
+      <div class="about-grid">
+        <div class="reveal">
+          <p>Tôi tin rằng cách tốt nhất để học kỹ thuật là tự tay làm ra một thứ chạy được. Mỗi bài học đều
+            gắn với một sản phẩm nhỏ: một mạch đèn, một robot dò line, một trạm đo nhiệt độ gửi dữ liệu lên điện thoại.</p>
+          <p>Song song với giảng dạy, tôi phát triển sản phẩm IoT và hệ nhúng thực tế. Những vấn đề gặp trong
+            dự án thật trở thành bài tập cho học sinh — để các em thấy kiến thức được dùng ở đâu.</p>
+          <div class="stats">
+            <div class="stat"><strong>6+</strong><span>năm giảng dạy</span></div>
+            <div class="stat"><strong>500+</strong><span>học sinh</span></div>
+            <div class="stat"><strong>80+</strong><span>dự án hoàn thành</span></div>
+            <div class="stat"><strong>12</strong><span>giải thưởng</span></div>
+          </div>
+        </div>
+        <ul class="timeline reveal">
+          <li><span class="year">2026</span><h4>Mở lớp Robotics nâng cao</h4><p>Chuẩn bị cho các cuộc thi robot cấp thành phố và quốc gia.</p></li>
+          <li><span class="year">2023</span><h4>Phát triển sản phẩm IoT</h4><p>Thiết kế phần cứng và firmware cho thiết bị giám sát thông minh.</p></li>
+          <li><span class="year">2020</span><h4>Bắt đầu giảng dạy STEM</h4><p>Thiết kế giáo trình Điện tử – Lập trình cho học sinh THCS, THPT.</p></li>
+          <li><span class="year">2015</span><h4>Đại học Bách khoa Hà Nội</h4><p>Kỹ sư Điện tử — Viễn thông.</p></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- LỚP HỌC -->
+  <section class="block" id="lop-hoc">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="kicker">Lớp học</p>
+        <h2>Hình thức <em>học</em> phù hợp</h2>
+        <p>Chọn hình thức theo lịch và mục tiêu của bạn.</p>
+      </div>
+      <div class="cards">
+        <article class="card reveal">
+          <span class="tag">Nhóm nhỏ</span>
+          <h3>Lớp nhóm 4–8 bạn</h3>
+          <p>Học theo dự án, làm việc nhóm, mỗi bạn đều có bộ linh kiện riêng để thực hành.</p>
+          <div class="meta"><span>2 buổi/tuần</span><b>Hà Nội</b></div>
+        </article>
+        <article class="card reveal">
+          <span class="tag">1 kèm 1</span>
+          <h3>Học cá nhân</h3>
+          <p>Lộ trình riêng theo năng lực, phù hợp ôn thi, làm đồ án hoặc chuẩn bị cuộc thi.</p>
+          <div class="meta"><span>Lịch linh hoạt</span><b>Tại nhà / Online</b></div>
+        </article>
+        <article class="card reveal">
+          <span class="tag">Trực tuyến</span>
+          <h3>Lớp online</h3>
+          <p>Học qua video call kèm mô phỏng mạch, linh kiện được gửi tận nhà trước khóa học.</p>
+          <div class="meta"><span>Toàn quốc</span><b>Zoom / Meet</b></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- KHÓA HỌC -->
+  <section class="block alt" id="khoa-hoc">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="kicker">Khóa học</p>
+        <h2>Lộ trình từ <em>cơ bản</em> đến nâng cao</h2>
+      </div>
+      <div class="cards">
+        <article class="card reveal">
+          <span class="tag">Lớp 4 — 7</span>
+          <h3>STEM nhập môn</h3>
+          <p>Làm quen mạch điện, cảm biến và lập trình kéo thả qua các mô hình vui nhộn.</p>
+          <div class="meta"><span>12 buổi</span><b>Cơ bản</b></div>
+        </article>
+        <article class="card reveal">
+          <span class="tag">Lớp 6 — 12</span>
+          <h3>Arduino &amp; Điện tử</h3>
+          <p>Lập trình C/C++ với Arduino, đọc sơ đồ mạch, điều khiển động cơ, LED, màn hình.</p>
+          <div class="meta"><span>16 buổi</span><b>Trung cấp</b></div>
+        </article>
+        <article class="card reveal">
+          <span class="tag">Lớp 8 — 12</span>
+          <h3>Robotics thi đấu</h3>
+          <p>Thiết kế, chế tạo robot dò line, robot tự hành; chiến thuật cho các cuộc thi.</p>
+          <div class="meta"><span>20 buổi</span><b>Nâng cao</b></div>
+        </article>
+        <article class="card reveal">
+          <span class="tag">THPT &amp; SV</span>
+          <h3>IoT với ESP32</h3>
+          <p>Kết nối Wi‑Fi, gửi dữ liệu lên cloud, làm app điều khiển thiết bị từ xa.</p>
+          <div class="meta"><span>16 buổi</span><b>Nâng cao</b></div>
+        </article>
+        <article class="card reveal">
+          <span class="tag">Lớp 6 — 12</span>
+          <h3>Lập trình Python</h3>
+          <p>Tư duy thuật toán, xử lý dữ liệu và làm trò chơi nhỏ bằng Python.</p>
+          <div class="meta"><span>16 buổi</span><b>Cơ bản</b></div>
+        </article>
+        <article class="card reveal">
+          <span class="tag">Sinh viên</span>
+          <h3>Thiết kế PCB</h3>
+          <p>Vẽ mạch nguyên lý, layout PCB 2 lớp, đặt gia công và hàn lắp hoàn chỉnh.</p>
+          <div class="meta"><span>12 buổi</span><b>Chuyên sâu</b></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- DỰ ÁN HỌC SINH -->
+  <section class="block" id="du-an-hoc-sinh">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="kicker">Dự án học sinh</p>
+        <h2>Sản phẩm do <em>học sinh</em> làm ra</h2>
+      </div>
+      <div class="projects">
+        <article class="project reveal">
+          <div class="project-thumb" style="background:linear-gradient(135deg,#3a6b78,#6f9aa3)">Smart Garden</div>
+          <div class="project-body">
+            <h3>Vườn rau tưới tự động</h3>
+            <p>Đo độ ẩm đất, tự bật bơm và gửi thông báo về điện thoại.</p>
+            <span class="by">Nhóm học sinh lớp 8 · Giải Nhì KHKT cấp quận</span>
+          </div>
+        </article>
+        <article class="project reveal">
+          <div class="project-thumb" style="background:linear-gradient(135deg,#c0623a,#dd9a72)">Line Robot</div>
+          <div class="project-body">
+            <h3>Robot dò line tốc độ cao</h3>
+            <p>Thuật toán PID, khung in 3D, hoàn thành đường đua trong 14 giây.</p>
+            <span class="by">Học sinh lớp 10 · Robotics thi đấu</span>
+          </div>
+        </article>
+        <article class="project reveal">
+          <div class="project-thumb" style="background:linear-gradient(135deg,#1f2d45,#4a5d80)">Air Monitor</div>
+          <div class="project-body">
+            <h3>Trạm đo chất lượng không khí</h3>
+            <p>Đo bụi mịn PM2.5, hiển thị trên web theo thời gian thực.</p>
+            <span class="by">Học sinh lớp 11 · Khóa IoT ESP32</span>
+          </div>
+        </article>
+        <article class="project reveal">
+          <div class="project-thumb" style="background:linear-gradient(135deg,#8a7660,#c9b79c)">Smart Home</div>
+          <div class="project-body">
+            <h3>Mô hình nhà thông minh</h3>
+            <p>Điều khiển đèn, quạt, cửa bằng giọng nói và ứng dụng di động.</p>
+            <span class="by">Nhóm học sinh lớp 7 · STEM nhập môn</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- DỰ ÁN CÁ NHÂN -->
+  <section class="block alt" id="du-an">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="kicker">Dự án</p>
+        <h2>Sản phẩm <em>kỹ thuật</em> thực tế</h2>
+        <p>Các dự án phần cứng và IoT tôi đã thực hiện — nguồn bài tập thực tế cho học sinh.</p>
+      </div>
+      <div class="cards">
+        <article class="card reveal">
+          <span class="tag">IoT</span>
+          <h3>Thiết bị giám sát kho lạnh</h3>
+          <p>Đo nhiệt độ, độ ẩm, cảnh báo qua SMS/Zalo khi vượt ngưỡng.</p>
+          <div class="meta"><span>ESP32 · LoRa</span><b>2024</b></div>
+        </article>
+        <article class="card reveal">
+          <span class="tag">Hệ nhúng</span>
+          <h3>Bộ điều khiển động cơ</h3>
+          <p>Mạch điều khiển BLDC cho xe tự hành mini, giao tiếp CAN.</p>
+          <div class="meta"><span>STM32 · PCB 4 lớp</span><b>2023</b></div>
+        </article>
+        <article class="card reveal">
+          <span class="tag">Giáo cụ</span>
+          <h3>Bộ kit học STEM</h3>
+          <p>Bộ kit mô-đun cắm-chạy dùng trong các lớp học nhập môn.</p>
+          <div class="meta"><span>Arduino · Sensor</span><b>2022</b></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIÊN HỆ -->
+  <section class="block" id="lien-he">
+    <div class="container contact-grid">
+      <div class="reveal">
+        <p class="kicker">Liên hệ</p>
+        <h2>Đăng ký <em>học thử</em> miễn phí</h2>
+        <p style="color:var(--ink-soft)">Để lại thông tin, tôi sẽ liên hệ trong vòng 24 giờ để tư vấn lộ trình phù hợp.</p>
+        <ul class="contact-list">
+          <li><small>Điện thoại</small><span>09xx xxx xxx</span></li>
+          <li><small>Email</small><span>email@example.com</span></li>
+          <li><small>Facebook</small><span>facebook.com/your-page</span></li>
+          <li><small>Địa chỉ</small><span>Hà Nội</span></li>
+        </ul>
+      </div>
+      <form class="reveal" onsubmit="event.preventDefault(); this.querySelector('.form-note').textContent='Cảm ơn bạn! Tôi sẽ liên hệ sớm.'; this.reset();">
+        <div class="row">
+          <label>Họ tên<input required name="name" placeholder="Nguyễn Văn A"></label>
+          <label>Số điện thoại<input required name="phone" type="tel" placeholder="09xx xxx xxx"></label>
+        </div>
+        <div class="row">
+          <label>Lớp / độ tuổi<input name="grade" placeholder="Lớp 8"></label>
+          <label>Khóa học quan tâm
+            <select name="course">
+              <option>STEM nhập môn</option>
+              <option>Arduino &amp; Điện tử</option>
+              <option>Robotics thi đấu</option>
+              <option>IoT với ESP32</option>
+              <option>Lập trình Python</option>
+              <option>Thiết kế PCB</option>
+            </select>
+          </label>
+        </div>
+        <label>Lời nhắn<textarea name="message" placeholder="Mục tiêu học, lịch rảnh..."></textarea></label>
+        <button class="btn btn-primary" type="submit">Gửi đăng ký →</button>
+        <p class="form-note"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <span>© 2026 Lê Danh Huy · Giáo viên Điện tử · Lập trình · Robotics</span>
+    <a href="#">Lên đầu trang ↑</a>
+  </div>
+</footer>
+
+<script>
+  // Hiệu ứng hiện dần khi cuộn
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Đóng menu mobile khi bấm link
+  document.querySelectorAll('.menu a').forEach(a => a.addEventListener('click', () =>
+    document.querySelector('.menu').classList.remove('open')));
+</script>
+</body>
+</html>
