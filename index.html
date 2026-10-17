@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lê Danh Huy — Giáo viên Điện tử · Lập trình · Robotics</title>
-<meta name="description" content="Lê Danh Huy – kỹ sư Điện tử Viễn thông, giảng dạy STEM, Lập trình, Điện tử và Robotics cho học sinh THCS, THPT và sinh viên.">
+<title>Lê Danh Huy — Kỹ sư Điện tử · IoT · Lập trình nhúng</title>
+<meta name="description" content="Lê Danh Huy – kỹ sư Điện tử Viễn thông (ĐH Bách khoa Hà Nội), 3 năm kinh nghiệm thiết kế phần cứng, lập trình nhúng và IoT; giảng dạy Điện tử, Lập trình C/C++ và vi điều khiển.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
@@ -172,10 +172,16 @@
     font-family: var(--serif); font-size: 46px; font-style: italic; color: rgba(255, 255, 255, .9);
   }
   .project-body { padding: 22px 24px 26px; }
+  .project-body .tag { display: inline-block; margin-bottom: 12px; }
   .project-body h3 { font-size: 18px; font-weight: 600; margin-bottom: 6px; }
   .project-body p { font-size: 14px; color: var(--ink-soft); }
   .project-body .by { font-size: 12.5px; color: var(--accent); margin-top: 10px; display: block; }
 
+  .skills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+  .skills span {
+    font-size: 12.5px; padding: 5px 12px; border-radius: 999px;
+    background: var(--card); border: 1px solid var(--line); color: var(--ink-soft);
+  }
   .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-top: 56px; }
   .stat { border-top: 2px solid var(--teal); padding-top: 14px; }
   .stat strong { font-family: var(--serif); font-size: 40px; font-weight: 400; display: block; line-height: 1.1; }
@@ -261,17 +267,17 @@
   <section class="hero">
     <div class="container hero-grid">
       <div class="reveal">
-        <p class="kicker">Giáo viên Điện tử · Lập trình · Robotics</p>
+        <p class="kicker">Kỹ sư Điện tử · IoT · Lập trình nhúng</p>
         <h1>Dạy kỹ thuật<br>bằng <em>thực hành</em></h1>
         <p class="lead">
           Tôi là <strong>Lê Danh Huy</strong>, kỹ sư Điện tử — Viễn thông, Đại học Bách khoa Hà Nội.
-          Từ năm 2020, tôi thiết kế bài giảng và trực tiếp dạy STEM, Lập trình, Điện tử và Robotics
-          cho học sinh THCS, THPT và sinh viên. Kinh nghiệm làm sản phẩm IoT thực tế được tôi đưa
-          trực tiếp vào bài giảng.
+          Với 3 năm làm kỹ sư thiết kế phần cứng, lập trình nhúng và IoT, tôi đưa kinh nghiệm
+          từ những sản phẩm thực tế — từ bình nóng nhanh SONHA đến hệ thống camera, đèn đường LoRa —
+          vào bài giảng Điện tử, Lập trình C/C++ và vi điều khiển.
         </p>
         <div class="facts">
-          <div><small>Chuyên môn</small><span>Điện tử, hệ nhúng, IoT</span></div>
-          <div><small>Độ tuổi dạy</small><span>Học sinh lớp 4 — lớp 12</span></div>
+          <div><small>Chuyên môn</small><span>Phần cứng, hệ nhúng, IoT</span></div>
+          <div><small>Kinh nghiệm</small><span>3 năm kỹ sư điện tử</span></div>
           <div><small>Khu vực</small><span>Hà Nội &amp; trực tuyến</span></div>
         </div>
         <div class="actions">
@@ -284,10 +290,10 @@
         <figure class="photo">
           <div class="photo-img">
             <!-- Đặt ảnh của bạn cùng thư mục với tên anh-dai-dien.jpg -->
-            <img src="anh-dai-dien.jpg" alt="Lê Danh Huy hướng dẫn dự án STEM"
+            <img src="anh-dai-dien.jpg" alt="Lê Danh Huy"
                  onerror="this.replaceWith(document.createTextNode('Thêm ảnh: anh-dai-dien.jpg'))">
           </div>
-          <figcaption class="caption"><b>LÊ DANH HUY</b>Trong một buổi hướng dẫn dự án STEM</figcaption>
+          <figcaption class="caption"><b>LÊ DANH HUY</b>Kỹ sư lập trình nhúng</figcaption>
         </figure>
       </div>
     </div>
@@ -302,22 +308,29 @@
       </div>
       <div class="about-grid">
         <div class="reveal">
-          <p>Tôi tin rằng cách tốt nhất để học kỹ thuật là tự tay làm ra một thứ chạy được. Mỗi bài học đều
-            gắn với một sản phẩm nhỏ: một mạch đèn, một robot dò line, một trạm đo nhiệt độ gửi dữ liệu lên điện thoại.</p>
-          <p>Song song với giảng dạy, tôi phát triển sản phẩm IoT và hệ nhúng thực tế. Những vấn đề gặp trong
-            dự án thật trở thành bài tập cho học sinh — để các em thấy kiến thức được dùng ở đâu.</p>
+          <p>Tôi tốt nghiệp chuyên ngành Kỹ thuật Điện tử, Đại học Bách khoa Hà Nội, và đã có 3 năm làm kỹ sư
+            điện tử — thiết kế mạch, lập trình vi điều khiển và triển khai các hệ thống IoT, camera trong thực tế.</p>
+          <p>Tôi tin rằng cách tốt nhất để học kỹ thuật là tự tay làm ra một thứ chạy được. Những bài toán gặp
+            trong sản phẩm thật — đo nhiệt độ, điều khiển công suất, truyền dữ liệu không dây — trở thành bài tập
+            để người học thấy kiến thức được dùng ở đâu.</p>
+          <div class="skills">
+            <span>C/C++</span><span>Cấu trúc dữ liệu &amp; giải thuật</span><span>STM32</span><span>AT32F421 (Cortex-M4)</span>
+            <span>8051</span><span>ATmega16</span><span>I2C · UART · SPI</span><span>Altium Designer</span>
+            <span>Buck · Boost</span><span>Raspberry Pi</span><span>LoRa</span><span>KeilC · STM32IDE · VSCode</span>
+            <span>Logic Analyzer · Oscilloscope</span>
+          </div>
           <div class="stats">
-            <div class="stat"><strong>6+</strong><span>năm giảng dạy</span></div>
-            <div class="stat"><strong>500+</strong><span>học sinh</span></div>
-            <div class="stat"><strong>80+</strong><span>dự án hoàn thành</span></div>
-            <div class="stat"><strong>12</strong><span>giải thưởng</span></div>
+            <div class="stat"><strong>3</strong><span>năm kinh nghiệm</span></div>
+            <div class="stat"><strong>2</strong><span>công ty công nghệ</span></div>
+            <div class="stat"><strong>4500W</strong><span>sản phẩm sản xuất hàng loạt</span></div>
+            <div class="stat"><strong>10/10</strong><span>FPT Software Academy</span></div>
           </div>
         </div>
         <ul class="timeline reveal">
-          <li><span class="year">2026</span><h4>Mở lớp Robotics nâng cao</h4><p>Chuẩn bị cho các cuộc thi robot cấp thành phố và quốc gia.</p></li>
-          <li><span class="year">2023</span><h4>Phát triển sản phẩm IoT</h4><p>Thiết kế phần cứng và firmware cho thiết bị giám sát thông minh.</p></li>
-          <li><span class="year">2020</span><h4>Bắt đầu giảng dạy STEM</h4><p>Thiết kế giáo trình Điện tử – Lập trình cho học sinh THCS, THPT.</p></li>
-          <li><span class="year">2015</span><h4>Đại học Bách khoa Hà Nội</h4><p>Kỹ sư Điện tử — Viễn thông.</p></li>
+          <li><span class="year">10/2024 — Nay</span><h4>Kỹ sư thiết kế phần cứng · Ecovision</h4><p>Công ty CP Công nghệ và Giải pháp An ninh Thông minh Ecovision. Thiết kế mạch box AI, lắp đặt các dự án camera.</p></li>
+          <li><span class="year">8/2023 — 10/2024</span><h4>Kỹ sư thiết kế sản phẩm · VSHOME</h4><p>R&amp;D (lập trình) sản phẩm với tập đoàn SONHA; tham gia sản xuất hàng loạt bình nóng nhanh — kiểm tra, đánh giá, viết báo cáo sản phẩm.</p></li>
+          <li><span class="year">2/2023 — 5/2023</span><h4>Thực tập sinh C/C++ · FPT Software Academy</h4><p>Hoàn thành chương trình với điểm 10/10.</p></li>
+          <li><span class="year">2019 — 2024</span><h4>Đại học Bách khoa Hà Nội</h4><p>Điện tử Viễn thông — chuyên ngành Kỹ thuật Điện tử.</p></li>
         </ul>
       </div>
     </div>
@@ -363,39 +376,39 @@
       </div>
       <div class="cards">
         <article class="card reveal">
-          <span class="tag">Lớp 4 — 7</span>
-          <h3>STEM nhập môn</h3>
-          <p>Làm quen mạch điện, cảm biến và lập trình kéo thả qua các mô hình vui nhộn.</p>
+          <span class="tag">THCS · THPT</span>
+          <h3>Điện tử cơ bản</h3>
+          <p>Linh kiện, đọc sơ đồ mạch, hàn mạch và đo kiểm bằng đồng hồ vạn năng, oscilloscope.</p>
           <div class="meta"><span>12 buổi</span><b>Cơ bản</b></div>
         </article>
         <article class="card reveal">
-          <span class="tag">Lớp 6 — 12</span>
-          <h3>Arduino &amp; Điện tử</h3>
-          <p>Lập trình C/C++ với Arduino, đọc sơ đồ mạch, điều khiển động cơ, LED, màn hình.</p>
-          <div class="meta"><span>16 buổi</span><b>Trung cấp</b></div>
-        </article>
-        <article class="card reveal">
-          <span class="tag">Lớp 8 — 12</span>
-          <h3>Robotics thi đấu</h3>
-          <p>Thiết kế, chế tạo robot dò line, robot tự hành; chiến thuật cho các cuộc thi.</p>
-          <div class="meta"><span>20 buổi</span><b>Nâng cao</b></div>
-        </article>
-        <article class="card reveal">
-          <span class="tag">THPT &amp; SV</span>
-          <h3>IoT với ESP32</h3>
-          <p>Kết nối Wi‑Fi, gửi dữ liệu lên cloud, làm app điều khiển thiết bị từ xa.</p>
-          <div class="meta"><span>16 buổi</span><b>Nâng cao</b></div>
-        </article>
-        <article class="card reveal">
-          <span class="tag">Lớp 6 — 12</span>
-          <h3>Lập trình Python</h3>
-          <p>Tư duy thuật toán, xử lý dữ liệu và làm trò chơi nhỏ bằng Python.</p>
+          <span class="tag">THPT · Sinh viên</span>
+          <h3>Lập trình C/C++</h3>
+          <p>Nền tảng ngôn ngữ C/C++, cấu trúc dữ liệu và giải thuật — nền móng cho lập trình nhúng.</p>
           <div class="meta"><span>16 buổi</span><b>Cơ bản</b></div>
         </article>
         <article class="card reveal">
+          <span class="tag">THPT · Sinh viên</span>
+          <h3>Vi điều khiển 8-bit</h3>
+          <p>Lập trình ngoại vi trên 8051 và ATmega16: GPIO, timer, ngắt, ADC, LED 7 thanh.</p>
+          <div class="meta"><span>16 buổi</span><b>Trung cấp</b></div>
+        </article>
+        <article class="card reveal">
           <span class="tag">Sinh viên</span>
-          <h3>Thiết kế PCB</h3>
-          <p>Vẽ mạch nguyên lý, layout PCB 2 lớp, đặt gia công và hàn lắp hoàn chỉnh.</p>
+          <h3>STM32 · ARM Cortex-M4</h3>
+          <p>Lập trình STM32/AT32 với KeilC, STM32IDE; giao tiếp I2C, UART, SPI; debug bằng logic analyzer.</p>
+          <div class="meta"><span>20 buổi</span><b>Nâng cao</b></div>
+        </article>
+        <article class="card reveal">
+          <span class="tag">Sinh viên</span>
+          <h3>IoT &amp; truyền thông không dây</h3>
+          <p>Xây dựng hệ thống Gateway – Node qua LoRa, Raspberry Pi, truyền dữ liệu và hình ảnh từ xa.</p>
+          <div class="meta"><span>16 buổi</span><b>Nâng cao</b></div>
+        </article>
+        <article class="card reveal">
+          <span class="tag">Sinh viên</span>
+          <h3>Thiết kế PCB với Altium</h3>
+          <p>Vẽ mạch nguyên lý, layout PCB, mạch nguồn Buck/Boost, đặt gia công và lắp ráp hoàn chỉnh.</p>
           <div class="meta"><span>12 buổi</span><b>Chuyên sâu</b></div>
         </article>
       </div>
@@ -415,7 +428,7 @@
           <div class="project-body">
             <h3>Vườn rau tưới tự động</h3>
             <p>Đo độ ẩm đất, tự bật bơm và gửi thông báo về điện thoại.</p>
-            <span class="by">Nhóm học sinh lớp 8 · Giải Nhì KHKT cấp quận</span>
+            <span class="by">Dự án mẫu · thay bằng sản phẩm thật của học viên</span>
           </div>
         </article>
         <article class="project reveal">
@@ -423,7 +436,7 @@
           <div class="project-body">
             <h3>Robot dò line tốc độ cao</h3>
             <p>Thuật toán PID, khung in 3D, hoàn thành đường đua trong 14 giây.</p>
-            <span class="by">Học sinh lớp 10 · Robotics thi đấu</span>
+            <span class="by">Dự án mẫu · thay bằng sản phẩm thật của học viên</span>
           </div>
         </article>
         <article class="project reveal">
@@ -431,7 +444,7 @@
           <div class="project-body">
             <h3>Trạm đo chất lượng không khí</h3>
             <p>Đo bụi mịn PM2.5, hiển thị trên web theo thời gian thực.</p>
-            <span class="by">Học sinh lớp 11 · Khóa IoT ESP32</span>
+            <span class="by">Dự án mẫu · thay bằng sản phẩm thật của học viên</span>
           </div>
         </article>
         <article class="project reveal">
@@ -439,7 +452,7 @@
           <div class="project-body">
             <h3>Mô hình nhà thông minh</h3>
             <p>Điều khiển đèn, quạt, cửa bằng giọng nói và ứng dụng di động.</p>
-            <span class="by">Nhóm học sinh lớp 7 · STEM nhập môn</span>
+            <span class="by">Dự án mẫu · thay bằng sản phẩm thật của học viên</span>
           </div>
         </article>
       </div>
@@ -452,26 +465,44 @@
       <div class="section-head reveal">
         <p class="kicker">Dự án</p>
         <h2>Sản phẩm <em>kỹ thuật</em> thực tế</h2>
-        <p>Các dự án phần cứng và IoT tôi đã thực hiện — nguồn bài tập thực tế cho học sinh.</p>
+        <p>Các dự án phần cứng, lập trình nhúng và IoT tôi đã tham gia — nguồn bài tập thực tế cho người học.</p>
       </div>
-      <div class="cards">
-        <article class="card reveal">
-          <span class="tag">IoT</span>
-          <h3>Thiết bị giám sát kho lạnh</h3>
-          <p>Đo nhiệt độ, độ ẩm, cảnh báo qua SMS/Zalo khi vượt ngưỡng.</p>
-          <div class="meta"><span>ESP32 · LoRa</span><b>2024</b></div>
+      <div class="projects">
+        <article class="project reveal">
+          <div class="project-thumb" style="background:linear-gradient(135deg,#1f2d45,#4a5d80)">Camera → Pi 4</div>
+          <div class="project-body">
+            <span class="tag">IoT · Ecovision</span>
+            <h3>Truyền ảnh từ camera đến Raspberry Pi 4</h3>
+            <p>Giải bài toán thực tế: chụp ảnh công tơ nước ở những nơi hẻo lánh như trạm thủy điện và truyền về người dùng.</p>
+            <span class="by">Công nghệ: Raspberry Pi 4 · WiringPi Framework</span>
+          </div>
         </article>
-        <article class="card reveal">
-          <span class="tag">Hệ nhúng</span>
-          <h3>Bộ điều khiển động cơ</h3>
-          <p>Mạch điều khiển BLDC cho xe tự hành mini, giao tiếp CAN.</p>
-          <div class="meta"><span>STM32 · PCB 4 lớp</span><b>2023</b></div>
+        <article class="project reveal">
+          <div class="project-thumb" style="background:linear-gradient(135deg,#c0623a,#dd9a72)">SONHA SH1051</div>
+          <div class="project-body">
+            <span class="tag">Hệ nhúng · VSHOME × SONHA</span>
+            <h3>Bình nóng nhanh SONHA — mẫu SH1051</h3>
+            <p>Công suất 4500W, nước dùng được ngay, có chống giật an toàn; người dùng chỉnh nhiệt độ 30–55°C, hiển thị qua LED 7 thanh. Sản xuất hàng loạt.</p>
+            <span class="by">Công nghệ: AT32F421 (Cortex-M4) · lập trình thanh ghi Holtek BS84B08C</span>
+          </div>
         </article>
-        <article class="card reveal">
-          <span class="tag">Giáo cụ</span>
-          <h3>Bộ kit học STEM</h3>
-          <p>Bộ kit mô-đun cắm-chạy dùng trong các lớp học nhập môn.</p>
-          <div class="meta"><span>Arduino · Sensor</span><b>2022</b></div>
+        <article class="project reveal">
+          <div class="project-thumb" style="background:linear-gradient(135deg,#3a6b78,#6f9aa3)">LoRa Street Light</div>
+          <div class="project-body">
+            <span class="tag">IoT · Đồ án tốt nghiệp</span>
+            <h3>Hệ thống chiếu sáng đèn đường thông minh qua LoRa</h3>
+            <p>Hệ thống chiếu sáng cho khu công nghiệp gồm nhiều Gateway và nhiều Node (đèn) kết nối qua mạng LoRa.</p>
+            <span class="by">Công nghệ: LoRa · Gateway – Node</span>
+          </div>
+        </article>
+        <article class="project reveal">
+          <div class="project-thumb" style="background:linear-gradient(135deg,#8a7660,#c9b79c)">AI Box</div>
+          <div class="project-body">
+            <span class="tag">Phần cứng · Ecovision</span>
+            <h3>Thiết kế mạch box AI</h3>
+            <p>Tham gia thiết kế phần cứng box AI và lắp đặt các dự án hệ thống camera an ninh.</p>
+            <span class="by">Công nghệ: Altium Designer</span>
+          </div>
         </article>
       </div>
     </div>
@@ -485,10 +516,10 @@
         <h2>Đăng ký <em>học thử</em> miễn phí</h2>
         <p style="color:var(--ink-soft)">Để lại thông tin, tôi sẽ liên hệ trong vòng 24 giờ để tư vấn lộ trình phù hợp.</p>
         <ul class="contact-list">
-          <li><small>Điện thoại</small><span>09xx xxx xxx</span></li>
-          <li><small>Email</small><span>email@example.com</span></li>
-          <li><small>Facebook</small><span>facebook.com/your-page</span></li>
-          <li><small>Địa chỉ</small><span>Hà Nội</span></li>
+          <li><small>Điện thoại</small><a href="tel:0327222335">0327 222 335</a></li>
+          <li><small>Email</small><a href="mailto:Ledanhhuy20192910@gmail.com">Ledanhhuy20192910@gmail.com</a></li>
+          <li><small>Địa chỉ</small><span>Nam Từ Liêm, Hà Nội</span></li>
+          <li><small>Ngoại ngữ</small><span>TOEIC 545 · JLPT N4</span></li>
         </ul>
       </div>
       <form class="reveal" onsubmit="event.preventDefault(); this.querySelector('.form-note').textContent='Cảm ơn bạn! Tôi sẽ liên hệ sớm.'; this.reset();">
@@ -500,12 +531,12 @@
           <label>Lớp / độ tuổi<input name="grade" placeholder="Lớp 8"></label>
           <label>Khóa học quan tâm
             <select name="course">
-              <option>STEM nhập môn</option>
-              <option>Arduino &amp; Điện tử</option>
-              <option>Robotics thi đấu</option>
-              <option>IoT với ESP32</option>
-              <option>Lập trình Python</option>
-              <option>Thiết kế PCB</option>
+              <option>Điện tử cơ bản</option>
+              <option>Lập trình C/C++</option>
+              <option>Vi điều khiển 8-bit</option>
+              <option>STM32 · ARM Cortex-M4</option>
+              <option>IoT &amp; truyền thông không dây</option>
+              <option>Thiết kế PCB với Altium</option>
             </select>
           </label>
         </div>
@@ -519,7 +550,7 @@
 
 <footer>
   <div class="container">
-    <span>© 2026 Lê Danh Huy · Giáo viên Điện tử · Lập trình · Robotics</span>
+    <span>© 2026 Lê Danh Huy · Kỹ sư Điện tử · IoT · Lập trình nhúng</span>
     <a href="#">Lên đầu trang ↑</a>
   </div>
 </footer>
